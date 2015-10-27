@@ -26,7 +26,7 @@ This plugin is responsible for sending build notifications via Webhooks:
         "author_email": "john.smith@gmail.com"
     },
     "vargs": {
-        "urls": "https://your.webhook/...",
+        "urls": [ "https://your.webhook/..." ]
     }
 }
 EOF
