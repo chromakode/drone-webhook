@@ -1,20 +1,16 @@
-Use the Slack plugin to send a message to your Slack channel when a build completes.
-You will need to supply Drone with an Incoming Webhook URL. You can create a new
-Webhook URL here: https://my.slack.com/services/new/incoming-webhook
+Use the Webhook plugin to notify services via Webhook when a build completes.
+You will need to supply Drone with outgoing Webhook URLs.
 
 The following parameters are used to configuration the notification:
 
-* **webhook_url** - json payloads are sent here
-* **channel** - messages sent to the above webhook are posted here
-* **recipient** - alternatively you can send it to a specific user
-* **username** - choose the username this integration will post as
+* **urls** - json payloads are sent here
 
-The following is a sample Slack configuration in your .drone.yml file:
+The following is a sample Webhook configuration in your .drone.yml file:
 
 ```yaml
 notify:
-  slack:
-    webhook_url: https://hooks.slack.com/services/...
-    channel: dev
-    username: drone
+  webhook:
+    urls:
+      - https://your.webhook/...
+      - https://your.other.webhook/...
 ```

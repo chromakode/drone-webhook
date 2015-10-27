@@ -1,21 +1,18 @@
-# drone-slack
-Drone plugin for sending Slack notifications
+# drone-webhook
+Drone plugin for sending Webhook notifications
 
 
 ## Overview
 
-This plugin is responsible for sending build notifications to your Slack channel:
+This plugin is responsible for sending build notifications via Webhooks:
 
 ```sh
-./drone-slack <<EOF
+./drone-webhooks <<EOF
 {
     "repo" : {
         "owner": "foo",
         "name": "bar",
         "full_name": "foo/bar"
-    },
-    "system": {
-        "link_url": "http://drone.mycompany.com"
     },
     "build" : {
         "number": 22,
@@ -29,9 +26,7 @@ This plugin is responsible for sending build notifications to your Slack channel
         "author_email": "john.smith@gmail.com"
     },
     "vargs": {
-        "webhook_url": "https://hooks.slack.com/services/...",
-        "username": "drone",
-        "channel": "#dev"
+        "urls": "https://your.webhook/...",
     }
 }
 EOF
@@ -44,21 +39,18 @@ the binary is built without a CGO dependency:
 
 ```sh
 CGO_ENABLED=0 go build -a -tags netgo
-docker build --rm=true -t plugins/drone-slack .
+docker build --rm=true -t plugins/drone-webhook .
 ```
 
-Send a Slack notification:
+Send a Webhook notification:
 
 ```sh
-docker run -i plugins/drone-slack <<EOF
+docker run -i plugins/drone-webhook <<EOF
 {
     "repo" : {
         "owner": "foo",
         "name": "bar",
         "full_name": "foo/bar"
-    },
-    "system": {
-        "link_url": "http://drone.mycompany.com"
     },
     "build" : {
         "number": 22,
@@ -72,9 +64,7 @@ docker run -i plugins/drone-slack <<EOF
         "author_email": "john.smith@gmail.com"
     },
     "vargs": {
-        "webhook_url": "https://hooks.slack.com/services/...",
-        "username": "drone",
-        "channel": "#dev"
+        "urls": "https://your.webhook/...",
     }
 }
 EOF

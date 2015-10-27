@@ -15,15 +15,14 @@ publish:
     username: drone
     password: $$DOCKER_PASS
     email: $$DOCKER_EMAIL
-    repo: plugins/drone-slack
+    repo: plugins/drone-webhook
     when:
       branch: master
 
 plugin:
-  name: Slack
-  desc: Send build status notifications to your Slack channel.
+  name: Webhook
+  desc: Send build status notifications via Webhook.
   type: notify
-  image: plugins/drone-slack
+  image: plugins/drone-webhook
   labels:
-    - chat
-    - messaging
+    - webhook
