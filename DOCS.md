@@ -1,9 +1,9 @@
 Use the Webhook plugin to notify services via Webhook when a build completes.
 You will need to supply Drone with outgoing Webhook URLs.
 
-The following parameters are used to configure the notification:
+The following parameters are used to configure outgoing Webhooks:
 
-* **urls** - json payloads are sent here
+* **urls** - JSON payloads are sent to each URL listed here
 
 The following is a sample Webhook configuration in your .drone.yml file:
 
