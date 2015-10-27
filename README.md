@@ -64,7 +64,7 @@ docker run -i plugins/drone-webhook <<EOF
         "author_email": "john.smith@gmail.com"
     },
     "vargs": {
-        "urls": "https://your.webhook/...",
+        "urls": [ "https://your.webhook/..." ]
     }
 }
 EOF
